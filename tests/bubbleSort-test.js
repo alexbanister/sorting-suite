@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import randomArrayLength from '../scripts/index'
+import { randomArrayLength, checkRuntime } from '../scripts/helper'
 import bubbleSort from '../scripts/bubbleSort'
 
 describe('Bubble sort', () => {
@@ -12,19 +12,9 @@ describe('Bubble sort', () => {
     let longArraySorted = longArray.sort( (a, b) => {
       return a - b
     });
-
     assert.deepEqual(bubbleSort([ 2, 5, 9, 1, 8, 3, 6, 4, 7 ]), [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]);
 
     assert.deepEqual(bubbleSort(longArray), longArraySorted);
   });
-  for (var i = 0; i < 5; i++) {
-    let longArray = randomArrayLength(15000);
-    let startTime = new Date().getTime();
-
-    bubbleSort(longArray);
-    let endTime = new Date().getTime();
-
-    console.log('bubbleSort:', (endTime - startTime), 'ms');
-  }
-  console.log('------------------------------');
+  checkRuntime(bubbleSort, 'bubbleSort', 15000, 5);
 });

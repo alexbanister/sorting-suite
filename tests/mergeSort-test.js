@@ -1,13 +1,13 @@
 import { assert } from 'chai';
-import randomArrayLength from '../scripts/index'
-import mergeSort from '../scripts/mergeSort'
+import { randomArrayLength, checkRuntime } from '../scripts/helper'
+import { mergeSort, mergeSortedArrays } from '../scripts/mergeSort'
 
 describe('Merge sort', () => {
   it('should be a function', function () {
     assert.isFunction(mergeSort);
   });
 
-  it.skip('should merge two sorted arrays', function () {
+  it('should merge two sorted arrays', function () {
     assert.deepEqual(mergeSortedArrays([ 1, 2, 3, 4, ], [ 5, 6, 7, 8, 9 ]), [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]);
   });
 
@@ -21,14 +21,5 @@ describe('Merge sort', () => {
 
     assert.deepEqual(mergeSort(longArray), longArraySorted);
   });
-  for (var i = 0; i < 5; i++) {
-    let longArray = randomArrayLength(15000);
-    let startTime = new Date().getTime();
-
-    mergeSort(longArray);
-    let endTime = new Date().getTime();
-
-    console.log('mergeSort:', (endTime - startTime), 'ms');
-  }
-  console.log('------------------------------');
+  checkRuntime(mergeSort, 'mergeSort', 15000, 5);
 });

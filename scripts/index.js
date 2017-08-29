@@ -1,16 +1,8 @@
-function randomArrayLength (number) {
-  let myOrderedArray = [];
-  let myRandomArray = [];
+import quickSort from '../scripts/quickSort'
+import { mergeSort, mergeSortedArrays } from '../scripts/mergeSort'
+import insertionSort from '../scripts/insertionSort'
+import bubbleSort from '../scripts/bubbleSort'
+import { randomArrayLength, checkRuntime } from '../scripts/helper'
 
-  for (let i = 0; i < number; i++) {
-    myOrderedArray.push(i + 1);
-  }
-  while (myOrderedArray.length) {
-    let myIndex = Math.floor(Math.random() * myOrderedArray.length);
 
-    myRandomArray.push(myOrderedArray.splice(myIndex, 1)[0]);
-  }
-  return myRandomArray;
-}
-
-export default randomArrayLength
+module.exports = { quickSort, mergeSort, mergeSortedArrays, insertionSort, bubbleSort, randomArrayLength, checkRuntime }

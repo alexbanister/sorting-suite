@@ -26,4 +26,4 @@ function mergeSortedArrays (leftArray, rightArray) {
   return merged;
 }
 
-export default mergeSort
+export { mergeSort, mergeSortedArrays }

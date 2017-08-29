@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import randomArrayLength from '../scripts/index'
+import { randomArrayLength, checkRuntime } from '../scripts/helper'
 import quickSort from '../scripts/quickSort'
 
 describe('Insertion sort', () => {
@@ -17,14 +17,5 @@ describe('Insertion sort', () => {
 
     assert.deepEqual(quickSort(longArray), longArraySorted);
   });
-  for (var i = 0; i < 5; i++) {
-    let longArray = randomArrayLength(15000);
-    let startTime = new Date().getTime();
-
-    quickSort(longArray);
-    let endTime = new Date().getTime();
-
-    console.log('quickSort:', (endTime - startTime), 'ms');
-  }
-  console.log('------------------------------');
+  checkRuntime(quickSort, 'quickSort', 15000, 5);
 });
