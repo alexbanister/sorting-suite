@@ -17,4 +17,13 @@ describe('Insertion sort', () => {
 
     assert.deepEqual(insertionSort(longArray), longArraySorted);
   });
+  for (var i = 0; i < 5; i++) {
+    let startTime = new Date().getTime();
+
+    insertionSort(randomArrayLength(15000));
+    let endTime = new Date().getTime();
+
+    console.log('insertionSort:', (endTime - startTime), 'ms');
+  }
+  console.log('------------------------------');
 });

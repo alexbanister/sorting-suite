@@ -17,4 +17,13 @@ describe('Bubble sort', () => {
 
     assert.deepEqual(bubbleSort(longArray), longArraySorted);
   });
+  for (var i = 0; i < 5; i++) {
+    let startTime = new Date().getTime();
+
+    bubbleSort(randomArrayLength(15000));
+    let endTime = new Date().getTime();
+
+    console.log('bubbleSort:', (endTime - startTime), 'ms');
+  }
+  console.log('------------------------------');
 });
