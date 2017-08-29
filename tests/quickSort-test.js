@@ -18,9 +18,10 @@ describe('Insertion sort', () => {
     assert.deepEqual(quickSort(longArray), longArraySorted);
   });
   for (var i = 0; i < 5; i++) {
+    let longArray = randomArrayLength(15000);
     let startTime = new Date().getTime();
 
-    quickSort(randomArrayLength(15000));
+    quickSort(longArray);
     let endTime = new Date().getTime();
 
     console.log('quickSort:', (endTime - startTime), 'ms');

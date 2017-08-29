@@ -22,9 +22,10 @@ describe('Merge sort', () => {
     assert.deepEqual(mergeSort(longArray), longArraySorted);
   });
   for (var i = 0; i < 5; i++) {
+    let longArray = randomArrayLength(15000);
     let startTime = new Date().getTime();
 
-    mergeSort(randomArrayLength(15000));
+    mergeSort(longArray);
     let endTime = new Date().getTime();
 
     console.log('mergeSort:', (endTime - startTime), 'ms');
